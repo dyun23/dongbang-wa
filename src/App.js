@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import Login from "./Login/Login";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ClubListMain from "./ClubList/ClubListMain";
 
 
 function App() {
   return (
     <BrowserRouter>
-    <Login/>
+    <Routes>
+      <Route path="/" element={<Login/>}/>
+      <Route path="/ClubList" element={<ClubListMain/>}/>
+    </Routes>
     </BrowserRouter>
   );
 }

@@ -1,0 +1,60 @@
+.CommunityItem {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  box-shadow: 1px 2px 5px 1px #f67280;
+  padding: 1.5rem; /* 수정된 부분: padding 조절 */
+  display: flex;
+  flex-direction: column; /* 추가된 부분: 세로로 정렬하도록 조절 */
+  align-items: flex-start; /* 수정된 부분: 박스 상단에 위치하도록 조절 */
+}
+
+.CommunityItem + .CommunityItem {
+  margin-top: 15px;
+}
+
+.content {
+  cursor: pointer;
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* 추가된 부분: 세로로 정렬하도록 조절 */
+}
+
+.content svg {
+  font-size: 1.5rem;
+  color: #f67280;
+}
+
+.content .text {
+  margin-top: 0.5rem;
+  flex: 1;
+}
+
+.content.checked .text {
+  color: #6c567b;
+  text-decoration: line-through;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+/* 추가된 부분: .divider 및 .additional-text 스타일 */
+.divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  background-color: #f67280;
+  margin: 5px 0;
+}
+
+.additional-text {
+  margin-top: 5px;
+  color: #6c567b;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}

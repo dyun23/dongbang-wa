@@ -192,3 +192,60 @@ export const Paragraph = styled.p`
     letter-spacing: 0.5px;
     margin: 20px 0 30px
 `;
+
+export const Group = styled.div`
+    margin: 20px;
+    /* ${props => (props.size == true ? `width: 50vh;` : null)} */
+`;
+//UnionClub
+export const SlideShow = styled.div`
+    width: 700px;
+    height: 450px;
+    border-radius: 15px;
+    background: lightgray 50% / cover no-repeat;
+    box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.25);
+`;
+
+export const ClubList = styled.div`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+`;
+
+export const Club = styled.div`
+    margin: 50px;
+    width: 200px;
+    height: 300px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: #FFF;
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.15);
+`;
+
+export const ClubImg = styled.img`
+    width: 100%;
+    height: 60%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+`;
+
+export const ClubTitle = styled.p`
+    color: #000;
+    font-family: ABeeZee;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 34px;
+    margin: 5px auto;
+`;
+
+export const ClubInfo = styled.p`
+    color: #000;
+    font-family: ABeeZee;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 25px;
+    margin: 5px auto;
+`;

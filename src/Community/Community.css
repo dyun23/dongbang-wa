@@ -1,0 +1,13 @@
+.add-community-button {
+  position: fixed;
+  bottom: 50px; /* 원하는 거리로 조절 */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  font-size: 5rem;
+  color: #f67280;
+}
+

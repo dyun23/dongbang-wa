@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import * as Components from './Components';
+import * as Components from '../Components';
+import { Link } from "react-router-dom";
 
 function Login() {
   const [signIn, toggle] = useState(true);
@@ -42,8 +43,8 @@ function Login() {
                         {id}학번
                     </option>
                 ))}
-            </select>         
-            <Components.Input type="text" placeholder="23학번"  style={{marginLeft: '10%'}} size={true}/>
+            </select>
+            {/* <Components.Input type="text" placeholder="23학번"  style={{marginLeft: '10%'}} size={true}/> */}
           </Components.HalfForm>
           <Components.Explanation>대학교</Components.Explanation>
           <Components.Input type="text" placeholder="한국대학교" />
@@ -57,7 +58,7 @@ function Login() {
           <Components.Input type="email" placeholder="이메일" />
           <Components.Input type="password" placeholder="비밀번호" />
           <Components.Anchor href="#">비밀번호를 잊어버리셨습니까?</Components.Anchor>
-          <Components.Button>로그인</Components.Button>
+          <Link to="/ClubList"><Components.Button>로그인</Components.Button></Link>
         </Components.Form>
       </Components.SignInContainer>
       <Components.OverlayContainer signinIn={signIn}>
