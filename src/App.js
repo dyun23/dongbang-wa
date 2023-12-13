@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import Login from "./Login/Login";
+import React from "react";
+import Login from "./Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ClubListMain from "./ClubList/ClubListMain";
+import Main from "./Main";
 
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<Login/>}/>
-      <Route path="/ClubList" element={<ClubListMain/>}/>
+      <Route path="/Main/*" element={<Main/>}/>
     </Routes>
     </BrowserRouter>
   );

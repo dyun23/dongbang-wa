@@ -5,9 +5,6 @@ import { useState, useRef } from "react";
 import styled from "styled-components";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
 import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.module.css";
 
@@ -15,10 +12,11 @@ import "react-datepicker/dist/react-datepicker.module.css";
 const AddBtn1=styled.button`
   border: 1px solid;
   background: white;
+  font-size: 18px;
   border-radius: 5px;
   color: rgba(0, 0, 0, 0.8);
   width:200px;
-  height: 60px;
+  height: 65px;
 `;
 const ModalPopUp=styled.div`
   position: absolute;
@@ -61,11 +59,6 @@ const Header=styled.div`
   padding: 0 3px;
   font-size: 1.5em;
 
-  & * {
-    color: #000000;
-    cursor: pointer;
-  }
-
 `;
 const Body=styled.div`
   background-color: white;
@@ -88,15 +81,14 @@ const SelectDiv=styled.div`
   text-align: left;
 `;
 
+
 const AddEvent = ({ onAddEvent }) => {
 
   const [modal, stopModal] = useState(false); //모달창 열고 끄기
   const outside = useRef(); //모달창 밖 클릭시 모달창 닫기
-  const [age, setAge] = useState(''); //일정 구분 선택
   
  //새로운 이벤트 생성
   const [newEvent, setNewEvent] = useState({title: "", start: "", end: "", description: ""});
-  // const [allEvents, setAllEvents] = useState([]);
 
   const handleAddEvent=()=>{
     onAddEvent(newEvent);
@@ -104,9 +96,6 @@ const AddEvent = ({ onAddEvent }) => {
     setNewEvent({title: "", start: "", end: "", description: ""});
   };
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
 
     return (
       <>
@@ -119,9 +108,10 @@ const AddEvent = ({ onAddEvent }) => {
         > 
           <ModalPopUp>
             <ModalCloseBtn id={ModalCloseBtn} onClick={ () => stopModal(false) }>✖</ModalCloseBtn>
-            <Header><h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;일정 추가</h4></Header>
+            <Header><h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;일정 추가</h4></Header>
             <Body>
               <TextField
+                style={{marginTop: "150px"}}
                 id="standard-size-normal-margin-normal-fullWidth"
                 fullWidth
                 placeholder="일정 제목"
@@ -138,53 +128,20 @@ const AddEvent = ({ onAddEvent }) => {
                 //   setTitle(e.target.value);
                 // }}
               />
-              <SelectDiv>
-                날짜
-                <ReactDatePicker placeholderText="시작일" style={{padding:"10px"}}
+              <SelectDiv style={{marginTop: "30px"}}>
+                날짜&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <ReactDatePicker placeholderText="시작일" style={{padding:"100px"}}
                 selected={newEvent.start} onChange={(start)=> setNewEvent({...newEvent, start})}/>
-                <ReactDatePicker placeholderText="종료일" style={{padding:"10px"}}
+                <ReactDatePicker placeholderText="종료일" style={{padding:"100px"}}
                 selected={newEvent.end} onChange={(end)=> setNewEvent({...newEvent, end})}/>
               </SelectDiv>
-              <SelectDiv>
-                일정 구분&nbsp;&nbsp;&nbsp;
-                <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-                  <Select
-                    labelId="demo-simple-select-standard-label"
-                    id="demo-simple-select-standard-margin-normal"
-                    margin="normal"
-                    value={age}
-                    onChange={handleChange}
-                    label="Age">
-                    {/* <MenuItem value="">
-                      <em>None</em>
-                    </MenuItem> */}
-                    <MenuItem value={1}>A동아리</MenuItem>
-                    <MenuItem value={2}>B동아리</MenuItem>
-                    <MenuItem value={3}>연합동아리</MenuItem>
-                  </Select>
-                </FormControl>
-                <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-                  <Select
-                    labelId="demo-simple-select-standard-label"
-                    id="demo-simple-select-standard"
-                    value={age}
-                    onChange={handleChange}
-                    label="Age">
-                    {/* <MenuItem value="">
-                      <em>None</em>
-                    </MenuItem> */}
-                    <MenuItem value={1}>이벤트</MenuItem>
-                    <MenuItem value={2}>공지</MenuItem>
-                    <MenuItem value={3}>대회</MenuItem>
-                  </Select>
-                </FormControl>
-              </SelectDiv>
               <TextField
+                style={{marginTop: "30px"}}
                 id="standard-multiline-static-margin-normal-fullWidth"
                 fullWidth
                 multiline
                 placeholder="일정 상세 내용"
-                rows={4}
+                rows={8}
                 // className={classes.textField}
                 variant="standard"
                 margin="normal"
@@ -193,8 +150,16 @@ const AddEvent = ({ onAddEvent }) => {
                   setNewEvent({...newEvent, description: e.target.value});
                 }}
               />
-              <Button
-                // className={classes.button}
+              <Button 
+                style={{marginTop: "5px"}}
+                sx={{
+                  m: 1,
+                  background: "linear-gradient(-20deg, #ffe8ec 0%, #fff3e8 100%);",
+                  color: "black",
+                  borderColor: "gray",
+                  ":hover": { borderColor: "black" },
+                }}
+                fullWidth
                 variant="contained"
                 onClick={handleAddEvent}
               >

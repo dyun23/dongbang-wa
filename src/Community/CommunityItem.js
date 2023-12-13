@@ -45,4 +45,3 @@ const CommunityItem = ({
 };
 
 export default CommunityItem;
-
