@@ -10,7 +10,7 @@ const CommunityInsert = ({
   onRemove,
   onUpdate
 }) => {
-  const [title, setTitle] = useState("");
+  const [text, setTitle] = useState("");
   const [content, setContent] = useState("");
 
   const onTitleChange = (e) => {
@@ -23,7 +23,7 @@ const CommunityInsert = ({
 
   const onSubmit = (e) => {
     e.preventDefault();
-    onInsertCommunity(title, content);
+    onInsertCommunity(text, content);
     setTitle("");
     setContent("");
     onInsertToggle();
@@ -31,7 +31,7 @@ const CommunityInsert = ({
 
   useEffect(() => {
     if (selectedCommunity) {
-      setTitle(selectedCommunity.title);
+      setTitle(selectedCommunity.text);
       setContent(selectedCommunity.content);
     }
   }, [selectedCommunity]);
@@ -42,7 +42,7 @@ const CommunityInsert = ({
       <form className="myForm" onSubmit={onSubmit}>
         <input
           placeholder="제목을 입력하세요"
-          value={title}
+          value={text}
           onChange={onTitleChange}
         ></input>
         <input
@@ -54,7 +54,7 @@ const CommunityInsert = ({
           <div className="rewrite">
             <TiPencil
               onClick={() => {
-                onUpdate(selectedCommunity.id, title, content);
+                onUpdate(selectedCommunity.id, text, content);
               }}
             />
             <TiTrash

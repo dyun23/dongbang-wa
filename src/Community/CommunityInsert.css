@@ -22,42 +22,42 @@
   justify-content: center;
   align-items: center;
   z-index: 990;
-  width: 400px; /* 조절 가능한 폭 */
-  height: 200px; /* 조절 가능한 높이 */
+  width: 400px; 
+  height: 200px;
   border-radius: 5px;
   box-shadow: 1px 2px 5px 1px #fd7f5a;
   background: white;
 }
 
 .myForm > input {
-  width: 80%; /* 조절 가능한 너비 */
+  width: 80%;
   background: none;
   outline: none;
   border: none;
   border-bottom: 1px solid #fd7f5a;
   padding: 0.5rem;
-  font-size: 1.5rem; /* 조절 가능한 폰트 크기 */
-  line-height: 2; /* 조절 가능한 높이 */
+  font-size: 1.5rem;
+  line-height: 2;
 }
 
 .myForm > input:last-child {
-  width: 80%; /* 조절 가능한 너비 */
+  width: 80%;
   background: none;
   outline: none;
   border: none;
   padding: 0.5rem;
-  font-size: 0.5rem; /* 조절 가능한 폰트 크기 */
-  line-height: 2; /* 조절 가능한 높이 */
+  font-size: 0.5rem;
+  line-height: 2;
 }
 
 .myForm > button {
-  margin-top: auto; /* 자동으로 남은 공간을 최대한 활용 */
+  margin-top: auto;
   background: none;
   outline: none;
   border: none;
   color: #fd7f5a;
-  padding: 0.5rem 1rem; /* 조절 가능한 내용 패딩 */
-  font-size: 1.5rem; /* 조절 가능한 폰트 크기 */
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
   display: flex;
   align-items: center;
   cursor: pointer;

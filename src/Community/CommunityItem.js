@@ -8,7 +8,7 @@ const CommunityItem = ({
   onInsertToggle,
   onChangeSelectedCommunity
 }) => {
-  const { id, text, checked } = community;
+  const { id, text, checked, content } = community;
 
   return (
     <div className="CommunityItem">
@@ -37,7 +37,7 @@ const CommunityItem = ({
         </div>
         <div className="divider">
           <hr />
-          <div className="additional-text">{`내용: ${text}`}</div>
+          <div className="additional-text">{`내용: ${content || ""}`}</div>
         </div>
       </div>
     </div>

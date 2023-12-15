@@ -6,11 +6,12 @@ const CommunityList = ({
   communities,
   onCheckToggle,
   onInsertToggle,
-  onChangeSelectedCommunity
+  onChangeSelectedCommunity,
+  size
 }) => {
   return (
-    <div className="CommunityList">
-      {communities.map(community => (
+    <div className="CommunityList" style={{ width: size ? 'auto' : '90vw' }}>
+      {communities.slice(0, size ? 6 : communities.length).map(community => (
         <CommunityItem
         community={community}
           key={community.id}

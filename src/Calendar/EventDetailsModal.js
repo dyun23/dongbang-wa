@@ -6,14 +6,6 @@ import "react-datepicker/dist/react-datepicker.module.css";
 import ReactDatePicker from "react-datepicker";
 
 
-// const AddBtn1=styled.button`
-//   border: 1px solid;
-//   background: white;
-//   border-radius: 5px;
-//   color: rgba(0, 0, 0, 0.8);
-//   width:200px;
-//   height: 60px;
-// `;
 const ModalPopUp=styled.div`
   position: absolute;
   width: 500px;
@@ -55,10 +47,6 @@ const Header=styled.div`
   padding: 0 3px;
   font-size: 1.5em;
 
-  // & * {
-  //   color: #000000;
-  //   cursor: pointer;
-  // }
 
 `;
 const Body=styled.div`
@@ -83,22 +71,19 @@ const SelectDiv=styled.div`
 `;
 
 const EventDetailsModal = ({ selectedEvent, onSave, onDelete, allEvents, setAllEvents }) => {
-    const [modal, closeModal] = useState(true); //모달창 열고 끄기
-    const outside = useRef(null); //모달창 밖 클릭시 모달창 닫기
+    const [modal, closeModal] = useState(true);
+    const outside = useRef(null);
 
-    //수정
     const [isEditing, setIsEditing] = useState(false);
     const [editedEvent, setEditedEvent] = useState(selectedEvent);
 
     const handleSave = () => {
-        // onSave 함수에 수정된 이벤트를 전달하여 처리
         onSave(editedEvent);
 
         setIsEditing(false);
         closeModal(false);
     };
 
-    //삭제
     const handleDelete = () => {
         onDelete(editedEvent);
         closeModal(false);
@@ -108,12 +93,11 @@ const EventDetailsModal = ({ selectedEvent, onSave, onDelete, allEvents, setAllE
         <>
         {
             modal && <ModalBg ref={outside} 
-            //outside.current => ModalBg 밑에 코드 수정 필요
             onClick={ (e) => { if(e.target === outside.current) closeModal(false) } }
             >
                 <ModalPopUp>
                     <ModalCloseBtn id={ModalCloseBtn} onClick={ () => closeModal(false) }>✖</ModalCloseBtn>
-                    {isEditing ? ( //편집화면 일때
+                    {isEditing ? (
                         <>
                         <Header>
                             <SelectDiv>
@@ -154,13 +138,20 @@ const EventDetailsModal = ({ selectedEvent, onSave, onDelete, allEvents, setAllE
                                     setEditedEvent({...editedEvent, description: e.target.value});
                                 }}
                             />
-                            <Button variant="contained" onClick={handleSave} fullWidth style={{marginTop: "5px"}}>
+                            <Button variant="contained" onClick={handleSave} fullWidth style={{marginTop: "5px"}}
+                            sx={{
+                                m: 1,
+                                background: "linear-gradient(-20deg, #ffe8ec 0%, #fff3e8 100%);",
+                                color: "black",
+                                borderColor: "gray",
+                                ":hover": { borderColor: "black" },
+                              }}>
                                 저장
                             </Button>
                         </Body>
                         </>
                     
-                    ) : ( //편집 전
+                    ) : (
                     <>
                         <Header style={{marginTop: "20px"}}>
                             <SelectDiv >
@@ -177,8 +168,6 @@ const EventDetailsModal = ({ selectedEvent, onSave, onDelete, allEvents, setAllE
                                 <h4>종료일: {selectedEvent.end.getFullYear().toString()+'.'
                                 +(selectedEvent.end.getMonth()+1).toString()+'.'
                                 +selectedEvent.end.getDate().toString()}</h4>
-                                {/* <h4>시작일: {selectedEvent.start.toString("YYYY-MM-DD")}</h4>
-                                <h4>종료일: {selectedEvent.end.toString("YYYY-MM-DD")}</h4> */}
                             </SelectDiv>
                             <SelectDiv style={{marginTop: "30px"}}>
                                 <h4>{selectedEvent.description}</h4>
@@ -217,6 +206,6 @@ const EventDetailsModal = ({ selectedEvent, onSave, onDelete, allEvents, setAllE
     );
 
 
-};//EventDetailsModal
+};
 
 export default EventDetailsModal;

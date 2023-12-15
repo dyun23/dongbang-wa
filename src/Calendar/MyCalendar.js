@@ -11,13 +11,21 @@ import EventDetailsModal from './EventDetailsModal';
 
 
 const SidebarDiv=styled.div`
-width: 300px;
-height: 300px;
+width:300px;
 margin: 50px;
 background: #FFFFFF;
 display: flex;
 flex-direction: column;
 align-items: center;
+  
+`;
+const Container=styled.div`
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: auto auto;
+  margin-top: 50px;
 `;
 
 const locales={
@@ -31,30 +39,8 @@ const localizer = dateFnsLocalizer({
   locales,
 })
 
-const MyCalendar = (props) => {
-  
-  // const events = [
-  //   {
-  //     id: 0,
-  //     title: 'All Day Event very long title',
-  //     allDay: true,
-  //     //start: new Date(5,12,2023),
-  //     //end: new Date(5,12,2023),
-  //     start: new Date(),
-  //     end: new Date(moment().add(1, "days")),
-  //     description : true, //일정내용
-  //   },
-  //   {
-  //     id: 0,
-  //     title: 'Big Meeting',
-  //     allDay: true,
-  //     start: new Date(5,12,2023),
-  //     end: new Date(5,12,2023),
-  //     description : true, //일정내용
-  //   },
-  // ];
-  
-  //새로운 이벤트 생성
+const MyCalendar = ({}) => {
+
   const [allEvents, setAllEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState([]);
 
@@ -62,26 +48,21 @@ const MyCalendar = (props) => {
     setAllEvents([...allEvents, newEvent])
   };
   const handleEventClick = (event) => {
-    setSelectedEvent([...selectedEvent, event]); //여러번 클릭해도 여러번 모달창 보여줌
-    //<EventDetailsModal/>
+    setSelectedEvent([...selectedEvent, event]);
   };
 
   const handleSave = (editedEvent) => {
     const updatedEvents = allEvents.map((event) =>
       event.id === editedEvent.id ? editedEvent : event
-      // event.id === selectedEvent.id ? editedEvent : event
     );
-  
     setAllEvents(updatedEvents);
-    setSelectedEvent([]); // 선택된 이벤트 초기화
+    setSelectedEvent([]);
   };
 
   const handleDelete = (deletedEvent) => {
     const updatedEvents = allEvents.filter((event) =>
       event.id !== deletedEvent.id
-      // event.id !== selectedEvent.id
     );
-
     setAllEvents(updatedEvents);
     setSelectedEvent([]);
   };
@@ -89,8 +70,8 @@ const MyCalendar = (props) => {
 
   return(
     <div style={{}}>
-      <h2 style={{marginTop: 50}}>동아리 일정표</h2>
-      <div style={{display: "flex", margin: "auto auto", marginTop: 50}}>
+      <h2 style={{margin: "50px auto"}}>동아리 일정표</h2>
+      <Container>
         <SidebarDiv>
           <AddEvent onAddEvent={handleAddEvent} />
           {selectedEvent.map((event, index) => (
@@ -101,18 +82,15 @@ const MyCalendar = (props) => {
         <div style={{width: 60+"%", height: 700}}>
           <Calendar
             localizer={localizer}
-            // defaultView="month"
             events={allEvents}
             style={{ height: "20" }}
             startAccessor="start"
             endAccessor="end"
             description="description"
             onSelectEvent={handleEventClick}
-            /* events 배열은 달력에 표시될 이벤트 목록이다. 
-            배열의 각 객체는 start, end, 그리고 title 속성을 가져야 한다. */
           />
         </div>
-      </div>`
+      </Container>
     </div>
   );
 };

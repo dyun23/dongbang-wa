@@ -1,26 +1,67 @@
 import React, { useState } from "react";
 import * as Components from './Components';
 import { Link } from "react-router-dom";
+import { useDispatch } from 'react-redux'
 
 function Login() {
   const [signIn, toggle] = useState(true);
-  const [studentId,setStudentId] = useState(23);
 
-  const changeStudentId = (event) => {
-    setStudentId(event.target.value);
-  }
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const dispatch = useDispatch();
+
+ const handleChangeEmail = (event) => {
+    dispatch({type: 'setEmail', payload: event.target.value});
+  };
+ const handleChangePassword = (event) => {
+    setPassword(event.target.value);
+    dispatch({type: 'setPassword', payload: event.target.value});
+  };
+  const handleChangeConfirmPassword = (event) => {
+    setConfirmPassword(event.target.value);
+  };
+ const handleChangeName = (event) => {
+    dispatch({type: 'setName', payload: event.target.value});
+  };
+ const handleChangeGender = (event) => {
+    dispatch({type: 'setGender', payload: event.target.value});
+  };
+ const handleChangePhoneNumber = (event) => {
+    dispatch({type: 'setPhoneNumber', payload: event.target.value});
+  };
+ const handleChangeBirth = (event) => {
+    dispatch({type: 'setBirth', payload: event.target.value});
+  };
+ const handleChangeStudendId = (event) => {
+    dispatch({type: 'setStudentId', payload: event.target.value});
+  };
+ const handleChangeUniversity = (event) => {
+    dispatch({type: 'setUniversity', payload: event.target.value});
+  };
+  const handleSignup = () => {
+    if (password !== confirmPassword) {
+      alert('비밀번호가 일치하지 않습니다.');
+      return;
+    }
+    alert('회원가입 완료');
+    toggle(true);
+  };
   return (
     <Components.Body>
       <Components.Container>
         <Components.SignUpContainer signinIn={signIn}>
-          <Components.Form>
+          <Components.Form onSubmit={(event) => event.preventDefault()}>
             <Components.Title>회원가입</Components.Title>
             <Components.Explanation>아이디(E-mail)</Components.Explanation>
-            <Components.Input type="email" placeholder="sample@gmail.com" />
+            <Components.Input type="email" placeholder="sample@gmail.com" onChange={handleChangeEmail} />
             <Components.Explanation>비밀번호</Components.Explanation>
-            <Components.Input type="password" placeholder="비밀번호를 8자 이상 입력해주세요" />
-            <Components.Explanation>비밀번호 확인</Components.Explanation>
-            <Components.Input type="password" placeholder="비밀번호를 한 번 더 입력해주세요" />
+            <Components.Input type="password" placeholder="비밀번호를 8자 이상 입력해주세요" onChange={handleChangePassword}/>
+            <Components.Explanation>
+            비밀번호 확인
+            {password && confirmPassword ? (password === confirmPassword ? ' (일치)' : ' (불일치)') : ''}
+            </Components.Explanation>
+            <Components.Input type="password" placeholder="비밀번호를 한 번 더 입력해주세요" onChange={handleChangeConfirmPassword}/>
 
             <Components.HalfForm>
               <Components.Explanation>이름</Components.Explanation>
@@ -28,13 +69,13 @@ function Login() {
             </Components.HalfForm>
 
             <Components.HalfForm>
-              <Components.Input type="text" placeholder="홍길동" size={true}/>
-              <label><Components.Radio type="radio" name="gender"/>남자</label>
-              <label><Components.Radio type="radio" name="gender"/>여자</label>
+              <Components.Input type="text" placeholder="홍길동" size={true} onChange={handleChangeName}/>
+              <label><Components.Radio type="radio" name="gender" value='남자' onChange={handleChangeGender}/>남자</label>
+              <label><Components.Radio type="radio" name="gender" value='여자' onChange={handleChangeGender}/>여자</label>
             </Components.HalfForm>
 
             <Components.Explanation>전화번호</Components.Explanation>
-            <Components.Input type="text" placeholder="010-1234-5678" />
+            <Components.Input type="text" placeholder="010-1234-5678" onChange={handleChangePhoneNumber}/>
 
             <Components.HalfForm>
               <Components.Explanation>생년월일</Components.Explanation>
@@ -42,10 +83,10 @@ function Login() {
             </Components.HalfForm>
 
             <Components.HalfForm>
-              <Components.Input type="text" placeholder="20001231" size={true}/>
-              <Components.Select value={studentId} onChange={changeStudentId}>
+              <Components.Input type="text" placeholder="20001231" size={true} onChange={handleChangeBirth}/>
+              <Components.Select onChange={handleChangeStudendId}>
                   {Array.from({length: 14}, (_, index) => 23 - index).map(id => (
-                      <option key={id} value={id}>
+                      <option key={id} value={`${id}학번`}>
                           {id}학번
                       </option>
                   ))}
@@ -53,8 +94,8 @@ function Login() {
             </Components.HalfForm>
 
             <Components.Explanation>대학교</Components.Explanation>
-            <Components.Input type="text" placeholder="한국대학교" />
-            <Components.Button onClick={() => toggle(true)}>회원가입</Components.Button>
+            <Components.Input type="text" placeholder="한국대학교" onChange={handleChangeUniversity}/>
+            <Components.Button type="button" onClick={handleSignup}>회원가입</Components.Button>
           </Components.Form>
         </Components.SignUpContainer>
 

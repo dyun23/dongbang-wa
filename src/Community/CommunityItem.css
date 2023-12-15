@@ -3,10 +3,10 @@
   margin-right: auto;
   border-radius: 5px;
   box-shadow: 1px 2px 5px 1px #f67280;
-  padding: 1.5rem; /* 수정된 부분: padding 조절 */
+  padding: 1.5rem;
   display: flex;
-  flex-direction: column; /* 추가된 부분: 세로로 정렬하도록 조절 */
-  align-items: flex-start; /* 수정된 부분: 박스 상단에 위치하도록 조절 */
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .CommunityItem + .CommunityItem {
@@ -17,7 +17,7 @@
   cursor: pointer;
   flex: 1;
   display: flex;
-  flex-direction: column; /* 추가된 부분: 세로로 정렬하도록 조절 */
+  flex-direction: column;
 }
 
 .content svg {
@@ -37,7 +37,6 @@
   opacity: 0.6;
 }
 
-/* 추가된 부분: .divider 및 .additional-text 스타일 */
 .divider {
   display: flex;
   flex-direction: column;

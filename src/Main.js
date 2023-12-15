@@ -6,6 +6,8 @@ import CommunityMain from "./Community/CommunityMain";
 import { Route, Routes, Navigate } from "react-router-dom";
 import UnionClub from './ClubList/UnionClub';
 import SchoolClub from './ClubList/SchoolClub';
+import Mypage from './Mypage';
+import ClubMain from './ClubMain';
 
 const Main = () => {
     return (
@@ -16,9 +18,10 @@ const Main = () => {
                 <Route path="/ClubList" element={<ClubListMain/>}/>
                 <Route path="/UnionClub" element={<UnionClub size={false}/>}/>
                 <Route path="/SchoolClub" element={<SchoolClub size={false}/>}/>
-                <Route path="/Calendar" element={<CalendarMain/>}/>
-                <Route path="/Community" element={<CommunityMain/>}/>
-                
+                <Route path="/Club" element={<ClubMain />}/>
+                <Route path="/Calendar" element={<CalendarMain size={false}/>}/>
+                <Route path="/Community" element={<CommunityMain size={false}/>}/>
+                <Route path="/Mypage" element={<Mypage/>}/>
             </Routes>
         </div>
     );

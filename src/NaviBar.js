@@ -58,6 +58,10 @@ function NaviBar() {
       navigate('/Main/Community');
     } else if(page === '마이페이지'){
       navigate('/Main/Mypage')
+    } else if(page === '코딩 동아리'){
+      navigate('/Main/Club', { state: { clubName: page } });
+    } else if(page === '사진 동아리'){
+      navigate('/Main/Club', { state: { clubName: page } });
     }
   };
 
@@ -71,7 +75,6 @@ function NaviBar() {
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -166,8 +169,8 @@ function NaviBar() {
                 <MenuItem value="">
                     <em>동아리를 선택해주세요</em>
                 </MenuItem>
-                <MenuItem value={10}>코딩 동아리</MenuItem>
-                <MenuItem value={20}>사진 동아리</MenuItem>
+                <MenuItem value={10} onClick={() => navigatePage("코딩 동아리")}>코딩 동아리</MenuItem>
+                <MenuItem value={20} onClick={() => navigatePage("사진 동아리")}>사진 동아리</MenuItem>
             </Select>
           </FormControl>
           </Box>

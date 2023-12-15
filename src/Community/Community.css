@@ -1,6 +1,6 @@
 .add-community-button {
   position: fixed;
-  bottom: 50px; /* 원하는 거리로 조절 */
+  bottom: 50px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;

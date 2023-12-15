@@ -101,14 +101,12 @@ const AddEvent = ({ onAddEvent }) => {
       <>
       <AddBtn1 onClick={ () => stopModal(true) }>+ 일정 추가</AddBtn1>
       {
-        //모달 밖에 클릭하면 모달 model => false 호출
         modal && <ModalBg ref={outside} 
-          //outside.current => ModalBg 밑에 코드 수정 필요
           onClick={ (e) => { if(e.target == outside.current) stopModal(false) } }
         > 
           <ModalPopUp>
             <ModalCloseBtn id={ModalCloseBtn} onClick={ () => stopModal(false) }>✖</ModalCloseBtn>
-            <Header><h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;일정 추가</h4></Header>
+            <Header><h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;일정 추가</h4></Header>
             <Body>
               <TextField
                 style={{marginTop: "150px"}}
@@ -121,15 +119,9 @@ const AddEvent = ({ onAddEvent }) => {
                 onChange={(e) => {
                   setNewEvent({...newEvent, title: e.target.value});
                 }}
-
-                // error={titleError}
-                // className={classes.textField}
-                // onChange={(e) => {
-                //   setTitle(e.target.value);
-                // }}
               />
               <SelectDiv style={{marginTop: "30px"}}>
-                날짜&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                날짜&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <ReactDatePicker placeholderText="시작일" style={{padding:"100px"}}
                 selected={newEvent.start} onChange={(start)=> setNewEvent({...newEvent, start})}/>
                 <ReactDatePicker placeholderText="종료일" style={{padding:"100px"}}
@@ -142,7 +134,6 @@ const AddEvent = ({ onAddEvent }) => {
                 multiline
                 placeholder="일정 상세 내용"
                 rows={8}
-                // className={classes.textField}
                 variant="standard"
                 margin="normal"
                 value={newEvent.description}

@@ -21,7 +21,7 @@ const SchoolClub = (props) => {
     return (
         <Components.Group size = {props.size}>
             <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
-                <Components.Title>백석대 동아리</Components.Title>
+                <Components.Title>교내 동아리</Components.Title>
                 {props.size && <Components.MoreButton onClick={navigatePage}>더보기 <span className="arrow">&rarr;</span></Components.MoreButton>}
             </div>
             <Components.Slider>

@@ -249,8 +249,6 @@ export const MoreButton = styled.button`
   }
 `
 
-
-//UnionClub
 export const Slider = styled(Slide)`
     
 `
@@ -314,8 +312,8 @@ export const ClubInfo = styled.p`
 `
 
 export const Line = styled.hr`
-    border: none; /* 기본 테두리 제거 */
-    height: 2px; /* 선의 두께 */
-    background-color: #888888; /* 선의 색상 */
-    margin: 3% 0; /* 위아래 여백 */
+    border: none;
+    height: 2px;
+    background-color: #888888;
+    margin: 3% 0;
 `
