@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/dongbang-wa/static/css/main.cc4ae37d.css",
-    "main.js": "/dongbang-wa/static/js/main.9286fad9.js",
+    "main.js": "/dongbang-wa/static/js/main.889be421.js",
     "static/media/slide3.jpg": "/dongbang-wa/static/media/slide3.df463ce127a846a7a22c.jpg",
     "static/media/slide6.jpg": "/dongbang-wa/static/media/slide6.fc4644fcfd5b0767d95d.jpg",
     "static/media/slide4.jpg": "/dongbang-wa/static/media/slide4.20a70ba545030d91bcb8.jpg",
@@ -10,10 +10,10 @@
     "static/media/slide2.png": "/dongbang-wa/static/media/slide2.e08ccc68b260074bad95.png",
     "index.html": "/dongbang-wa/index.html",
     "main.cc4ae37d.css.map": "/dongbang-wa/static/css/main.cc4ae37d.css.map",
-    "main.9286fad9.js.map": "/dongbang-wa/static/js/main.9286fad9.js.map"
+    "main.889be421.js.map": "/dongbang-wa/static/js/main.889be421.js.map"
   },
   "entrypoints": [
     "static/css/main.cc4ae37d.css",
-    "static/js/main.9286fad9.js"
+    "static/js/main.889be421.js"
   ]
 }
